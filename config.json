@@ -1,0 +1,28 @@
+{
+  "document_tokens": [
+    {
+      "document_id": "1v54U2Z7FcvUg3RxCzvwtt7n36EBQEeXXEYL-dpEKO3U",
+      "events": ["view"]
+    },
+    {
+      "document_id": "1uhpY_QwZ1TRWArQ6AadmF1hfHew8qNBfS9fambTjV3Q",
+      "events": ["view", "edit"]
+    },
+    {
+      "document_id": "1POL55NKzctvZYwurOfbeM4Zf-tRSCLz_Nq6rVv_hpfc",
+      "events": ["view", "edit", "rename", "download", "print"]
+    }
+  ],
+  "user_tokens": [
+    {
+      "user_email": "gsuitestest@thinkstcorp.com",
+      "events": ["view", "edit", "download", "change_user_access"]
+    }
+  ],
+  "logging": {
+    "enabled": 1
+  },
+  "syslog": {
+    "enabled": 1
+  }
+}

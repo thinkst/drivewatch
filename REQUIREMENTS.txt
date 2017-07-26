@@ -1,0 +1,4 @@
+httplib2==0.10.3
+pytz==2017.2
+python-dateutil==2.6.0
+google-api-python-client==1.6.2
