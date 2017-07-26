@@ -154,12 +154,15 @@ class GSuiteTokens(object):
             self.event_loop_thread.stop()
 
     def _event_loop(self):
+        print("[*] Starting event loop...")
         start_time = datetime.utcnow()
         d = datetime.utcnow()
         d_with_timezone = d.replace(tzinfo=pytz.UTC)
         d = d_with_timezone.isoformat()
 
         self.build_user_basline()
+        
+        print("[*] Drivewatch Ready!")
 
         while True:
             results = self.service.activities().list(
@@ -184,6 +187,7 @@ class GSuiteTokens(object):
             time.sleep(5)
 
     def build_user_basline(self):
+        print("[*] Building user baseline...")
         tmp_user_view_map = {}
         def parse_activities(activities):
             for activity in activities:
@@ -239,12 +243,6 @@ class GSuiteTokens(object):
         for key, value in tmp_map.iteritems():
             tmp_map[key] = round(1.0 * sum(value)/len(value))
         
-        print("[*] Building user baseline...")
-        #print("[*] Current Baseline for all users:")
-        #for key, value in tmp_map.iteritems():
-        #    print(key, value)
-        print("[*] Starting event loop...")
-        print("[*] Drivewatch Ready!")
         self.user_baseline_map = tmp_map.copy()
         
     def token_document(self, actor, event):
@@ -275,8 +273,7 @@ class GSuiteTokens(object):
 
     def log_drive_events(self, activity):
         if self.logging:
-            with open(self.logfile_all_activity, 'wr') as f:
-                f.write(str(activity)  + '\n')
+            print(activity)
 
     def user_view_counts(self, event, actor, service):
         if (event['name'] == 'view'):
@@ -371,7 +368,7 @@ class MySysLogHandler(logging.handlers.SysLogHandler):
 
     def emit(self, record):
         priority = self.encodePriority(self.facility, self.mapPriority(record.levelname))
-        record.ident = "gsuites-watcher:"
+        record.ident = "drivewatch:"
         super(MySysLogHandler, self).emit(record)
 
 def rsyslog_handler():

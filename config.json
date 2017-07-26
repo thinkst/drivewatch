@@ -19,9 +19,6 @@
       "events": ["view", "edit", "download", "change_user_access"]
     }
   ],
-  "logging": {
-    "enabled": 1
-  },
   "syslog": {
     "enabled": 1
   }
