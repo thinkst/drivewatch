@@ -73,7 +73,7 @@ Now for the fun part! To run the tool simply run:
 
 .. code-block:: bash
 
-   python driveWatch.python
+   python driveWatch.py
 
 If this is your first time running the tool you will be directed to a new tab on your web browser with steps to complete OAuth authentication. This will only need to be done once.
 
