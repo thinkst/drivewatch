@@ -34,15 +34,15 @@ Follow these steps to get the Google side of things setup:
 A new project will need to be created at https://console.cloud.google.com and the relevant
 APIs enabled. In this case the enabled applications are the "Admin SDK" and the "Apps Activity API". 
 
-Once the project has been created a new OAuth 2.0 Client ID will need to be created. this
-may be done under the Credentials tab of the newly created project. Once this has been done you'll need to keep the Client ID handy. **Note:** You'll also want to download the client_secret.json file here
-and make sure it's called "client_secret.json".
+Once the project has been created a new OAuth 2.0 Client ID will need to be created. This
+may be done under the Credentials tab of the newly created project. Keep the Client ID handy. **Note:** You'll also want to download the client_secret.json file here
+and make sure it's called "client_secret.json". You can replace the "client_secret.json" in the Drivewatch folder with this.
 
-Now log into the admin homepage (Google Admin - Google Accounts) and navigate to Security Settings and when here head to Advanced. Under advanced you will see a 
+Now log into the admin homepage (Google Admin - Google Accounts) and navigate to Security Settings and then head to Advanced. Under advanced you will see a 
 Authentication section, click Manage API client access. This will bring up a new page. This is were that OAuth Client ID will come in handy. Create a new access rule using the Client ID in the Client Name field and the following for the Scopes field: 	https://www.googleapis.com/auth/admin.reports.audit.readonly.
 This will give the OAuth user access to the Reports API.
 
-All that's needed now is to run the tool and login via OAuth. **Note:** Make sure you are logged into the Admin account in your browser as this is required for OAuth auth step to work correctly.
+All that's needed now is to run the tool and login via OAuth. **Note:** Make sure you are logged into the Admin account in your browser as this is required for the OAuth auth step to work correctly.
 
 Alert Types
 ----------
@@ -54,7 +54,7 @@ Alert Types
 **Threshold:** Passive monitoring. Applies to all users in the organization. If a user views more than 30 unique documents within 24 hours, an alert is fired.
 
 **Baseline:** Passive monitoring. Applies to all users in the organization. When the tool is first launched the history of each user (activity up to 180 days old) is parsed to build a baseline for each user.
-This is used to determine the average daily activity for each user. If a user goes above 120% of their average daily drive activity, an alert is fired.
+This is used to determine the average daily activity for each user. If a user goes above 120% of their average daily drive activity, an alert is fired. This baseline is updated every 24 hours.
 
 
 Syslog Integration
